@@ -3,15 +3,15 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   
-  <title>关闭输入流 | lxvy&#39;s blog</title>
+  <title>Scanner键盘输入方法 | lxvy&#39;s blog</title>
   <meta name="author" content="li xin">
   
-  <meta name="description" content="在Java程序中，可以使用Scanner获取键盘输入的内容，但是怎么在获取内容后关闭Scanner输入流？">
+  <meta name="description" content="在Java程序中使用Scanner类进行输入时，输入数字、单个字符、字符串都可以。但是在输入的字符串中存在空格时，程序中获得的数据存在问题。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="关闭输入流"/>
+  <meta property="og:title" content="Scanner键盘输入方法"/>
   <meta property="og:site_name" content="lxvy&#39;s blog"/>
 
   
@@ -75,10 +75,10 @@
     <header>
         <div class="icon"></div>
         
-        <time datetime="2017-03-08T07:16:00.264Z"><a href="/2017/03/08/Java/IO_close/">2017-03-08</a></time>
+        <time datetime="2017-03-08T13:30:24.618Z"><a href="/2017/03/08/Java/Scanner_way/">2017-03-08</a></time>
         
   
-    <h1 class="title">关闭输入流</h1>
+    <h1 class="title">Scanner键盘输入方法</h1>
   
 
     </header>
@@ -86,18 +86,32 @@
     <div class="entry">
       
         
-        <p>在Java程序中，可以使用Scanner获取键盘输入的内容，但是怎么在获取内容后关闭Scanner输入流？</p>
+    <div id="toc" class="toc-article">
+    	<strong class="toc-title">目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Scanner"><span class="toc-number">1.</span> <span class="toc-text">Scanner</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#nextInt"><span class="toc-number">1.1.</span> <span class="toc-text">nextInt()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#next"><span class="toc-number">1.2.</span> <span class="toc-text">next()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nextLine"><span class="toc-number">1.3.</span> <span class="toc-text">nextLine()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BufferedReader和InputStreamReader"><span class="toc-number">2.</span> <span class="toc-text">BufferedReader和InputStreamReader</span></a></li></ol>
+    </div>
+
+        <p>在Java程序中使用Scanner类进行输入时，输入数字、单个字符、字符串都可以。但是在输入的字符串中存在空格时，程序中获得的数据存在问题。</p>
 <a id="more"></a>
-<p>题目：将一个正整数分解质因数。例如：输入90,打印出90=2<em>3</em>3*5。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">import java.util.Scanner;</div><div class="line"></div><div class="line">public class iteration &#123;</div><div class="line">	public iteration(int n)&#123;</div><div class="line">		int k = n;</div><div class="line">		int i = 1;</div><div class="line">		String s = &quot;&quot;;</div><div class="line">		while(i&lt;90)&#123;</div><div class="line">			if(n%i==0&amp;&amp;i!=1)&#123;</div><div class="line">				n = n/i;</div><div class="line">				if(s==&quot;&quot;)&#123;</div><div class="line">					s = s+&quot;&quot;+i;</div><div class="line">				&#125;else&#123;</div><div class="line">					s = s+&quot;*&quot;+i;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">				i--;</div><div class="line">			&#125;</div><div class="line">			i++;</div><div class="line">		&#125;</div><div class="line">		System.out.println(&quot;输入&quot;+k+&quot;,打印输出为&quot;+s);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		Scanner in = new Scanner(System.in);</div><div class="line">		System.out.print(&quot;请输入一个正整数：&quot;);</div><div class="line">		int x = in.nextInt();</div><div class="line">		new iteration(x);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>可以正常输出，但是有警告：<font color="#ff0000">Resource leak: ‘in’ is never closed</font></p>
-<p>改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Scanner in = new Scanner(System.in);</div><div class="line"></div><div class="line">//try&#123;&#125;finally&#123;关闭输入流&#125;</div><div class="line">try&#123;</div><div class="line">	System.out.print(&quot;请输入一个正整数：&quot;);</div><div class="line">	int x = in.nextInt();</div><div class="line">	new iteration(x);</div><div class="line">&#125;</div><div class="line">finally&#123;</div><div class="line"> in.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h3><p>java.lang.Object<br>  继承 java.util.Scanner</p>
+<p>1.在Java官方API文档中是这样写的：</p>
 <blockquote>
-<p>为什么？</p>
+<p>使用正则表达式来解析基本类型和字符串的简单文本扫描器。</p>
 </blockquote>
-<p>在Java中，try表示处理异常。</p>
-<p>1.try-catch<br>运行流程：运行到try块中，如果有异常抛出，则转到catch块去处理。然后执行catch块后面的语句<br>2.try-finally<br>运行流程：运行到try块中,如果有异常抛出的话，程序转向执行finally块的代码。<br>3.try-catch-finally<br>运行流程：运行到try块中，如果有异常抛出，则转到catch块,catch块执行完毕后，执行finally块的代码，再执行finally块后面的代码。</p>
-<p>in.close();则表示关闭System.in输入流</p>
+<p>例如，以下代码使用户能够从 System.in 中读取一个数：</p>
+<pre><code>Scanner sc = new Scanner(System.in);
+int i = sc.nextInt();
+
+public void close() //     关闭此扫描器。
+</code></pre><h4 id="nextInt"><a href="#nextInt" class="headerlink" title="nextInt()"></a>nextInt()</h4><p>nextInt()输入流类型为数字</p>
+<h4 id="next"><a href="#next" class="headerlink" title="next()"></a>next()</h4><p>next()输入流为字符串，且字符串中只有字母</p>
+<h4 id="nextLine"><a href="#nextLine" class="headerlink" title="nextLine()"></a>nextLine()</h4><p>此扫描器执行当前行，并返回跳过的输入信息。 此方法返回当前行的其余部分，不包括结尾处的行分隔符。当前位置移至下一行的行首。<br>因为此方法会继续在输入信息中查找行分隔符，所以如果没有行分隔符，它可能会缓冲所有输入信息，并查找要跳过的行。</p>
+<h3 id="BufferedReader和InputStreamReader"><a href="#BufferedReader和InputStreamReader" class="headerlink" title="BufferedReader和InputStreamReader"></a>BufferedReader和InputStreamReader</h3><p>java.lang.Object<br>  继承 java.io.Reader<br>      继承 java.io.BufferedReader</p>
+<p>从字符输入流中读取文本，缓冲各个字符，从而实现字符、数组和行的高效读取。</p>
+<p>通常，Reader 所作的每个读取请求都会导致对底层字符或字节流进行相应的读取请求。因此，建议用 BufferedReader 包装所有其 read() 操作可能开销很高的 Reader（如 FileReader 和 InputStreamReader）。例如，</p>
+<p> BufferedReader in<br>   = new BufferedReader(new FileReader(“foo.in”));</p>
+<p>将缓冲指定文件的输入。如果没有缓冲，则每次调用 read() 或 readLine() 都会导致从文件中读取字节，并将其转换为字符后返回，而这是极其低效的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import java.io.*;  </div><div class="line">public static void main(String [] args) throws IOException&#123;   </div><div class="line">           BufferedReader br = new BufferedReader(new InputStreamReader(System.in));   </div><div class="line">           String str = null;   </div><div class="line">           System.out.println(&quot;Enter your value:&quot;);   </div><div class="line">           str = br.readLine();   </div><div class="line">           System.out.println(&quot;your value is :&quot;+str);   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -141,7 +155,7 @@
     
     
         <!-- 多说评论框 start -->
-        <div class="ds-thread" data-thread-key="2017/03/08/Java/IO_close/" data-title="关闭输入流" data-url="http://lxvy.github.io/2017/03/08/Java/IO_close/"></div>
+        <div class="ds-thread" data-thread-key="2017/03/08/Java/Scanner_way/" data-title="Scanner键盘输入方法" data-url="http://lxvy.github.io/2017/03/08/Java/Scanner_way/"></div>
         <!-- 多说评论框 end -->
         <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
         <script type="text/javascript">
