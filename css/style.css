@@ -230,13 +230,15 @@ a:hover {
 #header h2 a {
   margin-left: 1.5em;
 }
+article {
+  -webkit-box-shadow: 1px 1px 10px #aaa;
+  box-shadow: 1px 1px 10px #aaa;
+  background: #fff;
+}
 article #top {
   font-size: 0.8em;
   font-weight: bold;
   color: #f00;
-  -webkit-box-shadow: 1px 1px 10px #aaa;
-  box-shadow: 1px 1px 10px #aaa;
-  background: #fff;
 }
 article.page .icon:before {
   content: '\f02d';
