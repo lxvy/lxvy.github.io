@@ -1,0 +1,641 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <title>ASCII对照表 | lxvy&#39;s blog</title>
+  <meta name="author" content="li xin">
+  
+  <meta name="description" content="在判决字符是否为字符、数字或其他字符时，一般是判决字符是否在某一ASCII范围内。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="ASCII对照表"/>
+  <meta property="og:site_name" content="lxvy&#39;s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link rel="alternate" href="/atom.xml" title="lxvy&#39;s blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <!-- wumiiVerification -->
+  <meta name="wumiiVerification" content="fb50a101-84fe-4ca2-91a7-ae8cf792978b" />
+  <meta name="wumiiVerification" content="d73b5866-c390-4156-a4dd-51b526b5335e" />
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Font-Awesome -->
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <header id="header"><div class= "header-content inner">
+	<div class = "alignleft col-one">
+		
+		<div class="header-div">
+		    <h1><a href="/">lxvy&#39;s blog</a></h1>
+		    <h2><a href="/"></a></h2>
+		</div>
+	</div>
+	
+	<div class="clearfix"></div>
+</div>
+
+<div class= "header-nav">
+	<div class='header-nav-content inner'>
+		<div id="main-nav" class="alignleft">
+		    		
+		    		  <a href="/"><i class="fa fa-home"></i>首页</a>
+		    		
+		    		  <a href="/archives"><i class="fa fa-archive"></i>归档</a>
+		    		
+		    		  <a href="/books"><i class="fa fa-book"></i>书</a>
+		    		
+		    		  <a href="/about"><i class="fa fa-user"></i>关于</a>
+		    		
+		</div>
+		<div id="sub-nav" class="alignright">
+		    
+		      <a href="/atom.xml"><i class="fa fa-rss"></i>Rss</a>
+		    
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</header>
+  
+    <div id="content" class="inner">
+      <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+        <div class="icon"></div>
+        
+        <time datetime="2017-03-09T02:58:41.879Z"><a href="/2017/03/09/Java/ASCII_table/">2017-03-09</a></time>
+        
+  
+    <h1 class="title">ASCII对照表</h1>
+  
+
+    </header>
+
+    <div class="entry">
+      
+        
+        <p>在判决字符是否为字符、数字或其他字符时，一般是判决字符是否在某一ASCII范围内。</p>
+<a id="more"></a>
+<h2 id="字符与ASCII转换"><a href="#字符与ASCII转换" class="headerlink" title="字符与ASCII转换"></a>字符与ASCII转换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">int i = 59</div><div class="line">char c = (char)i</div><div class="line"></div><div class="line">char h = &apos;a&apos;;</div><div class="line">int n = h;</div></pre></td></tr></table></figure>
+<p> 题目：输入一行字符，分别统计出其中英文字母、空格、数字和其它字符的个数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">import java.util.Scanner;</div><div class="line">public class Zifu &#123;</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		int count = 0;</div><div class="line">		int ch = 0;</div><div class="line">		int k = 0;</div><div class="line">		int ot = 0;</div><div class="line">		Scanner sc = new Scanner(System.in);</div><div class="line">		try&#123;			</div><div class="line">			System.out.print(&quot;请输入一行字符：&quot;);</div><div class="line">			String str = sc.nextLine();</div><div class="line">			int len = str.length();</div><div class="line">			for(int i=0; i&lt;len; i++)&#123;</div><div class="line">				char hh = str.charAt(i);</div><div class="line">				if(hh == &apos; &apos;)&#123;</div><div class="line">					k++;</div><div class="line">				&#125;else if(hh&gt;=48&amp;&amp;hh&lt;=57)&#123;</div><div class="line">					count++;</div><div class="line">				&#125;else if((hh&gt;=65&amp;&amp;hh&lt;=90)||(hh&gt;=97&amp;&amp;hh&lt;=122))&#123;</div><div class="line">					ch++;</div><div class="line">				&#125;else&#123;</div><div class="line">					ot++;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			System.out.println(&quot;英文字母的个数：&quot;+ch);</div><div class="line">			System.out.println(&quot;空格的个数：&quot;+k);</div><div class="line">			System.out.println(&quot;数字的个数：&quot;+count);</div><div class="line">			System.out.println(&quot;其它字符的个数：&quot;+ot);</div><div class="line">		&#125;</div><div class="line">		finally&#123;</div><div class="line">			sc.close();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">ASCII值</th>
+<th style="text-align:center">控制字符</th>
+<th style="text-align:center">ASCII值</th>
+<th style="text-align:center">控制字符</th>
+<th style="text-align:center">ASCII值</th>
+<th style="text-align:center">控制字符</th>
+<th style="text-align:center">ASCII值</th>
+<th style="text-align:center">控制字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">NUI</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">(space)</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">@</td>
+<td style="text-align:center">96</td>
+<td style="text-align:center">、</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">SOH</td>
+<td style="text-align:center">33</td>
+<td style="text-align:center">!</td>
+<td style="text-align:center">65</td>
+<td style="text-align:center">A</td>
+<td style="text-align:center">97</td>
+<td style="text-align:center">a</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">STX</td>
+<td style="text-align:center">34</td>
+<td style="text-align:center">“</td>
+<td style="text-align:center">66</td>
+<td style="text-align:center">B</td>
+<td style="text-align:center">98</td>
+<td style="text-align:center">b</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">ETX</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">#</td>
+<td style="text-align:center">67</td>
+<td style="text-align:center">C</td>
+<td style="text-align:center">99</td>
+<td style="text-align:center">c</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">EOT</td>
+<td style="text-align:center">36</td>
+<td style="text-align:center">$</td>
+<td style="text-align:center">68</td>
+<td style="text-align:center">D</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">d</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">ENQ</td>
+<td style="text-align:center">37</td>
+<td style="text-align:center">%</td>
+<td style="text-align:center">69</td>
+<td style="text-align:center">E</td>
+<td style="text-align:center">101</td>
+<td style="text-align:center">e</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">ACK</td>
+<td style="text-align:center">38</td>
+<td style="text-align:center">&amp;</td>
+<td style="text-align:center">70</td>
+<td style="text-align:center">F</td>
+<td style="text-align:center">102</td>
+<td style="text-align:center">f</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">BEL</td>
+<td style="text-align:center">39</td>
+<td style="text-align:center">,</td>
+<td style="text-align:center">71</td>
+<td style="text-align:center">G</td>
+<td style="text-align:center">103</td>
+<td style="text-align:center">g</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">BS</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">(</td>
+<td style="text-align:center">72</td>
+<td style="text-align:center">H</td>
+<td style="text-align:center">104</td>
+<td style="text-align:center">h</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">HT</td>
+<td style="text-align:center">41</td>
+<td style="text-align:center">)</td>
+<td style="text-align:center">73</td>
+<td style="text-align:center">I</td>
+<td style="text-align:center">105</td>
+<td style="text-align:center">i</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">LF</td>
+<td style="text-align:center">42</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">74</td>
+<td style="text-align:center">J</td>
+<td style="text-align:center">106</td>
+<td style="text-align:center">j</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">VT</td>
+<td style="text-align:center">43</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">75</td>
+<td style="text-align:center">K</td>
+<td style="text-align:center">107</td>
+<td style="text-align:center">k</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">FF</td>
+<td style="text-align:center">44</td>
+<td style="text-align:center">,</td>
+<td style="text-align:center">76</td>
+<td style="text-align:center">L</td>
+<td style="text-align:center">108</td>
+<td style="text-align:center">l</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">CR</td>
+<td style="text-align:center">45</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">77</td>
+<td style="text-align:center">M</td>
+<td style="text-align:center">109</td>
+<td style="text-align:center">m</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">SO</td>
+<td style="text-align:center">46</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">78</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">110</td>
+<td style="text-align:center">n</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">SI</td>
+<td style="text-align:center">47</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">79</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">111</td>
+<td style="text-align:center">o</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">DLE</td>
+<td style="text-align:center">48</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">P</td>
+<td style="text-align:center">112</td>
+<td style="text-align:center">p</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">DCI</td>
+<td style="text-align:center">49</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">81</td>
+<td style="text-align:center">Q</td>
+<td style="text-align:center">113</td>
+<td style="text-align:center">q</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">DC2</td>
+<td style="text-align:center">50</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">82</td>
+<td style="text-align:center">R</td>
+<td style="text-align:center">114</td>
+<td style="text-align:center">r</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">DC3</td>
+<td style="text-align:center">51</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">83</td>
+<td style="text-align:center">S</td>
+<td style="text-align:center">115</td>
+<td style="text-align:center">s</td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:center">DC4</td>
+<td style="text-align:center">52</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">84</td>
+<td style="text-align:center">T</td>
+<td style="text-align:center">116</td>
+<td style="text-align:center">t</td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:center">NAK</td>
+<td style="text-align:center">53</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">85</td>
+<td style="text-align:center">U</td>
+<td style="text-align:center">117</td>
+<td style="text-align:center">u</td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:center">SYN</td>
+<td style="text-align:center">54</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">86</td>
+<td style="text-align:center">V</td>
+<td style="text-align:center">118</td>
+<td style="text-align:center">v</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">TB</td>
+<td style="text-align:center">55</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">87</td>
+<td style="text-align:center">W</td>
+<td style="text-align:center">119</td>
+<td style="text-align:center">w</td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:center">CAN</td>
+<td style="text-align:center">56</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">88</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">120</td>
+<td style="text-align:center">x</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:center">EM</td>
+<td style="text-align:center">57</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">89</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">121</td>
+<td style="text-align:center">y</td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td style="text-align:center">SUB</td>
+<td style="text-align:center">58</td>
+<td style="text-align:center">:</td>
+<td style="text-align:center">90</td>
+<td style="text-align:center">Z</td>
+<td style="text-align:center">122</td>
+<td style="text-align:center">z</td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:center">ESC</td>
+<td style="text-align:center">59</td>
+<td style="text-align:center">;</td>
+<td style="text-align:center">91</td>
+<td style="text-align:center">[</td>
+<td style="text-align:center">123</td>
+<td style="text-align:center">{</td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td style="text-align:center">FS</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">92</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">124</td>
+<td style="text-align:center">&#124;</td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td style="text-align:center">GS</td>
+<td style="text-align:center">61</td>
+<td style="text-align:center">=</td>
+<td style="text-align:center">93</td>
+<td style="text-align:center">]</td>
+<td style="text-align:center">125</td>
+<td style="text-align:center">}</td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:center">RS</td>
+<td style="text-align:center">62</td>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center">94</td>
+<td style="text-align:center">^</td>
+<td style="text-align:center">126</td>
+<td style="text-align:center">`</td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td style="text-align:center">US</td>
+<td style="text-align:center">63</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">95</td>
+<td style="text-align:center">_</td>
+<td style="text-align:center">127</td>
+<td style="text-align:center">DEL</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Java/">Java</a>
+  </div>
+
+        
+  <div class="tags">
+    <a href="/tags/ASCII/">ASCII</a>
+  </div>
+
+        <div class = "counter">
+  <span id="busuanzi_container_page_pv" style="display:none">
+      总访问&nbsp<span id="busuanzi_value_page_pv"></span>&nbsp次
+  </span>
+</div>
+        
+  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a><a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a><a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a><a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a><a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a></div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+  
+<section id = "relate">
+	
+</section>
+
+
+  
+    <section id="comment">
+    <!--   <h1 class="title">Comments</h1> -->
+    
+    
+        <!-- 多说评论框 start -->
+        <div class="ds-thread" data-thread-key="2017/03/09/Java/ASCII_table/" data-title="ASCII对照表" data-url="http://lxvy.github.io/2017/03/09/Java/ASCII_table/"></div>
+        <!-- 多说评论框 end -->
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+        <script type="text/javascript">
+        var duoshuoQuery = {short_name:"lxvy"};
+          (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0] 
+             || document.getElementsByTagName('body')[0]).appendChild(ds);
+          })();
+          </script>
+        <!-- 多说公共JS代码 end -->
+
+      
+    </section>
+
+
+
+
+</div></div>
+      <aside id="sidebar" class="alignright">
+   <div class="search">
+  <form action="/search/index.html" method="get" accept-charset="utf-8">
+<!--     <input type="search" name="wd"results="0" placeholder="Search">
+    <input type="hidden" name="wd" value="site:lxvy.github.io"> -->
+     <input type="text" id="search" class="st-default-search-input" placeholder="Search" style="height: 100%" />
+  </form>
+</div> 
+
+  
+<div class="widget tag">
+  <h3 class="title" id="categories">
+  <i class="fa fa-folder-open" aria-hidden="true"></i>  分类</h3>
+     <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">3</span></li></ul> 
+</div>
+ 
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title"><i class="fa fa-tags"></i>  标签云</h3>
+  <div class="entry">
+    <a href="/tags/ASCII/" style="font-size: 10px;">ASCII</a> <a href="/tags/I-O流/" style="font-size: 20px;">I/O流</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+  <h3 class="title"><i class="fa fa-calendar" aria-hidden="true"></i>  日历云</h3>
+  <div id="calendar"></div>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title"><i class="fa fa-file-o"></i>  最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2017/03/09/Java/ASCII_table/">ASCII对照表</a>
+      </li>
+    
+      <li>
+        <a href="/2017/03/08/Java/Scanner_way/">Scanner键盘输入方法</a>
+      </li>
+    
+      <li>
+        <a href="/2017/03/08/Java/IO_close/">关闭输入流</a>
+      </li>
+    
+      <li>
+        <a href="/2017/03/08/Stop/">博客更新</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</aside>
+      <div class="clearfix"></div>
+    </div>
+  
+  <footer id="footer"><div class="footer-content inner">
+  <div class="alignleft">
+  
+    &copy; 2017 li xin
+    
+  </div>
+  <div class="alignright">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme
+    <a href="https://github.com/pengloo53/Hexo-theme-light_cn">light_cn</a>
+  </div>
+  
+  <div class="visit">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </div>
+  
+  <div class="clearfix"></div>
+</div></footer>
+  <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<!-- calendar widget -->
+
+  <script src="/js/calendar.js"></script>
+  <script src="/js/languages.js"></script>
+  <script type="text/javascript">
+    $(function() {
+    
+      $('#calendar').aCalendar('zh-CN',{single:undefined, root:'calendar'});
+    
+    });
+  </script>
+
+
+<!-- 『不蒜子』计数服务 -->
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- wumii关联推荐 -->
+<script type="text/javascript" src="http://widget.wumii.cn/ext/relatedItemsWidget"></script>
+
+<!-- 百度推荐 -->
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?9acf0cedd48dc53be256ede5a98c2aaa";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+<!-- 返回顶部 -->
+<div id="toTop">
+	<a href="#">▲</a>
+	<a href="#footer">▼</a>
+</div>
+
+<!-- 站内搜索-Swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','sC-iNFrvTTNtiXEVNwo1','2.0.0');
+</script>
+
+<!-- fancybox -->
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+</html>

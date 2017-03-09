@@ -372,6 +372,14 @@ article header .title a:hover {
   color: #258fb8;
   text-decoration: none;
 }
+article .entry > table {
+  border-collapse: collapse;
+}
+article .entry > table tr>th,
+article .entry > table td {
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+}
 article .entry {
   text-align: justify;
   line-height: 1.4;
@@ -747,11 +755,6 @@ article footer .counter:before {
 #sidebar .widget .archive-list .archive-list-count:after {
   content: ')';
 }
-#sidebar .widget ul,
-#sidebar .widget ol,
-#sidebar .widget dl {
-  list-style: none;
-}
 #sidebar .widget ul ul,
 #sidebar .widget ol ul,
 #sidebar .widget dl ul,
@@ -906,7 +909,7 @@ article footer .counter:before {
   color: #258fb8;
 }
 figure.highlight {
-  background: #eee;
+  background: #fff;
   border: 1px solid #ddd;
   margin-top: 15px;
   padding: 7px 15px;
@@ -930,6 +933,7 @@ figure.highlight pre {
   border: none;
   padding: 0;
   margin: 0;
+  background: #fff;
 }
 figure.highlight table {
   margin-top: 0;
