@@ -100,7 +100,14 @@
 <p>在Java中，float定义：float a = (float)2.4;float b = 2.5f;否则视为double，例如double c = 3.5;</p>
 <h3 id="float除法运算"><a href="#float除法运算" class="headerlink" title="float除法运算"></a>float除法运算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public static void main(String[] args) &#123;</div><div class="line">		System.out.println(25/2);</div><div class="line">		System.out.println(25f/2);</div><div class="line">		double a = 25;</div><div class="line">		System.out.println(a/2);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>输出结果为：<br>12<br>12.5<br>12.5</p>
-<h3 id="取值范围"><a href="#取值范围" class="headerlink" title="取值范围"></a>取值范围</h3><p>浮点型：<br>　　Float 32位单精度浮点数 10^-38~10^38和-10^-38~-10^38<br>　　Double 64位双精度浮点数 10^-308~10^308和-10^-308~-10^308<br>整数型：<br>    Byte 8位带符号整数 -128到127之间的任意整数<br>　　Short 16位无符号整数 -32768~32767之间的任意整数<br>　　Int 32位带符号整数 -2^31到2^31-1之间的任意整数<br>　　Long 64位带符号整数 -2^63到2^63-1之间的任意整数</p>
+<h3 id="取值范围"><a href="#取值范围" class="headerlink" title="取值范围"></a>取值范围</h3><p>浮点型：</p>
+<p>　　Float 32位单精度浮点数 10^-38~10^38和-10^-38~-10^38</p>
+<p>　　Double 64位双精度浮点数 10^-308~10^308和-10^-308~-10^308</p>
+<p>整数型：</p>
+<p>　　Byte 8位带符号整数 -128到127之间的任意整数</p>
+<p>　　Short 16位无符号整数 -32768~32767之间的任意整数</p>
+<p>　　Int 32位带符号整数 -2^31到2^31-1之间的任意整数</p>
+<p>　　Long 64位带符号整数 -2^63到2^63-1之间的任意整数</p>
 <h3 id="Java命名规范"><a href="#Java命名规范" class="headerlink" title="Java命名规范"></a>Java命名规范</h3><p>1、 项目名全部小写</p>
 <p>2、 包名全部小写</p>
 <p>3、 类名首字母大写，如果类名由多个单词组成，每个单词的首字母都要大写。</p>
@@ -109,7 +116,7 @@
 <p>如：int index=0;</p>
 <pre><code>public void toString(){}
 </code></pre><p>5、 常量名全部大写</p>
-<p>如：public static final String GAME_COLOR=”RED”;</p>
+<p>如：<br>       public static final String GAME_COLOR=”RED”;</p>
 <p>6、所有命名规则必须遵循以下规则：</p>
 <p>1)、名称只能由字母、数字、下划线、$符号组成</p>
 <p>2)、不能以数字开头</p>
