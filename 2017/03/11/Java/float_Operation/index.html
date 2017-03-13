@@ -3,15 +3,15 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   
-  <title>博客更新 | lxvy&#39;s blog</title>
+  <title>Java浮点数运算 | lxvy&#39;s blog</title>
   <meta name="author" content="li xin">
   
-  <meta name="description" content="自从编写前端页面以来，发现代码思维是以之前学习Java时的思维。之前编写的博客没有意义，之前编写的博客不能够代表我的想法，正确来说都不能说为博客，应该说算是抄袭别人的博客。所以删除之前的博客，后续继续努力。">
+  <meta name="description" content="在对int进行计算时，计算的结果会变成float型，在对float型进行计算，则结果为怎样呢？">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="博客更新"/>
+  <meta property="og:title" content="Java浮点数运算"/>
   <meta property="og:site_name" content="lxvy&#39;s blog"/>
 
   
@@ -75,10 +75,10 @@
     <header>
         <div class="icon"></div>
         
-        <time datetime="2017-03-08T07:07:55.638Z"><a href="/2017/03/08/Stop/">2017-03-08</a></time>
+        <time datetime="2017-03-11T06:19:33.947Z"><a href="/2017/03/11/Java/float_Operation/">2017-03-11</a></time>
         
   
-    <h1 class="title">博客更新</h1>
+    <h1 class="title">Java浮点数运算</h1>
   
 
     </header>
@@ -86,15 +86,51 @@
     <div class="entry">
       
         
-        <p>自从编写前端页面以来，发现代码思维是以之前学习Java时的思维。之前编写的博客没有意义，之前编写的博客不能够代表我的想法，正确来说都不能说为博客，应该说算是抄袭别人的博客。所以删除之前的博客，后续继续努力。</p>
+    <div id="toc" class="toc-article">
+    	<strong class="toc-title">目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#float与double的区别"><span class="toc-number">1.</span> <span class="toc-text">float与double的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#float除法运算"><span class="toc-number">2.</span> <span class="toc-text">float除法运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#取值范围"><span class="toc-number">3.</span> <span class="toc-text">取值范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java命名规范"><span class="toc-number">4.</span> <span class="toc-text">Java命名规范</span></a></li></ol>
+    </div>
+
+        <p>在对int进行计算时，计算的结果会变成float型，在对float型进行计算，则结果为怎样呢？</p>
 <a id="more"></a>
+<h3 id="float与double的区别"><a href="#float与double的区别" class="headerlink" title="float与double的区别"></a>float与double的区别</h3><p>浮点数：有理数中某特定子集的数的数字表示，在计算机中用以近似表示任意某个实数。具体的说，这个实数由一个整数或定点数（即尾数）乘以某个基数（计算机中通常是2）的整数次幂得到，这种表示方法类似于基数为10的科学计数法。</p>
+<blockquote>
+<p>在‘Effective Java’一书中：float和double只能用来做科学计算或者工程计算，在商业计算中我们要用java.math.BigDecimal。如果需要精确计算，非要用String来构建BigDecimal不可！</p>
+</blockquote>
+<p>在Java中，float定义：float a = (float)2.4;float b = 2.5f;否则视为double，例如double c = 3.5;</p>
+<h3 id="float除法运算"><a href="#float除法运算" class="headerlink" title="float除法运算"></a>float除法运算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public static void main(String[] args) &#123;</div><div class="line">		System.out.println(25/2);</div><div class="line">		System.out.println(25f/2);</div><div class="line">		double a = 25;</div><div class="line">		System.out.println(a/2);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出结果为：<br>12<br>12.5<br>12.5</p>
+<h3 id="取值范围"><a href="#取值范围" class="headerlink" title="取值范围"></a>取值范围</h3><p>浮点型：<br>　　Float 32位单精度浮点数 10^-38~10^38和-10^-38~-10^38<br>　　Double 64位双精度浮点数 10^-308~10^308和-10^-308~-10^308<br>整数型：<br>    Byte 8位带符号整数 -128到127之间的任意整数<br>　　Short 16位无符号整数 -32768~32767之间的任意整数<br>　　Int 32位带符号整数 -2^31到2^31-1之间的任意整数<br>　　Long 64位带符号整数 -2^63到2^63-1之间的任意整数</p>
+<h3 id="Java命名规范"><a href="#Java命名规范" class="headerlink" title="Java命名规范"></a>Java命名规范</h3><p>1、 项目名全部小写</p>
+<p>2、 包名全部小写</p>
+<p>3、 类名首字母大写，如果类名由多个单词组成，每个单词的首字母都要大写。</p>
+<p>如：public class MyFirstClass{}</p>
+<p>4、 变量名、方法名首字母小写，如果名称由多个单词组成，方法的名字的第一个单词应以小写字母作为开头，后面的单词则用大写字母开头。</p>
+<p>如：int index=0;</p>
+<pre><code>public void toString(){}
+</code></pre><p>5、 常量名全部大写</p>
+<p>如：public static final String GAME_COLOR=”RED”;</p>
+<p>6、所有命名规则必须遵循以下规则：</p>
+<p>1)、名称只能由字母、数字、下划线、$符号组成</p>
+<p>2)、不能以数字开头</p>
+<p>3)、名称不能使用JAVA中的关键字。</p>
+<p>4)、坚决不允许出现中文及拼音命名。</p>
 
       
     </div>
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/categories/Java/">Java</a>
+  </div>
+
         
+  <div class="tags">
+    <a href="/tags/float/">float</a>
+  </div>
+
         <div class = "counter">
   <span id="busuanzi_container_page_pv" style="display:none">
       总访问&nbsp<span id="busuanzi_value_page_pv"></span>&nbsp次
@@ -122,7 +158,7 @@
     
     
         <!-- 多说评论框 start -->
-        <div class="ds-thread" data-thread-key="2017/03/08/Stop/" data-title="博客更新" data-url="http://lxvy.github.io/2017/03/08/Stop/"></div>
+        <div class="ds-thread" data-thread-key="2017/03/11/Java/float_Operation/" data-title="Java浮点数运算" data-url="http://lxvy.github.io/2017/03/11/Java/float_Operation/"></div>
         <!-- 多说评论框 end -->
         <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
         <script type="text/javascript">
